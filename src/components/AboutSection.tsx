@@ -81,9 +81,9 @@ export const AboutSection = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                I got hooked on AI the moment I saw how{" "}
-                <span className="text-primary font-medium">neural networks actually learn</span> — 
-                the hidden layers, the processing, how machines figure things out on their own. 
+                I got hooked on AI the moment I saw how neural networks actually learn. 
+                The hidden layers, the processing, how machines{" "}
+                <span className="text-primary font-medium">figure things out on their own</span>.
                 That stuff genuinely fascinates me.
               </motion.p>
 
@@ -93,10 +93,10 @@ export const AboutSection = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                I'm the kind of person who'd rather build a script to automate something 
-                than do it manually — call it lazy, I call it{" "}
-                <span className="text-foreground font-medium">efficient</span>. That's what got me 
-                into AI agents. They automate the boring stuff so we can focus on what actually matters.
+                I'm the kind of person who'd rather{" "}
+                <span className="text-foreground font-medium">build a script to automate something</span>{" "}
+                than do it manually. Call it lazy, I call it efficient. That's what got me 
+                into AI agents. They handle the boring stuff so I can focus on what actually matters.
               </motion.p>
 
               <motion.p
@@ -107,7 +107,8 @@ export const AboutSection = () => {
               >
                 Outside of code, you'll find me watching football, reading up on the latest AI research, 
                 or testing out some new tool that just dropped. I'm inconsistent at a lot of things, 
-                but the <span className="text-primary font-medium">thrive to learn never stops</span> — 
+                but the{" "}
+                <span className="text-primary font-medium">drive to learn never stops</span>, 
                 and that's what keeps me going.
               </motion.p>
             </div>

@@ -28,14 +28,14 @@ const tiles: QATile[] = [
   {
     id: "ai",
     question: "Why AI/ML?",
-    answer: "Fascinated by how neural networks learn — the hidden layers, the processing. That satisfaction when a model works is unmatched.",
+    answer: "Fascinated by how neural networks learn, the hidden layers, the processing. That satisfaction when a model works is unmatched.",
     icon: Cpu,
     color: "hsl(150, 55%, 45%)",
   },
   {
     id: "agents",
     question: "What about AI agents?",
-    answer: "Agents automate things. Krishna likes automating things. Lazy person builds smart solutions — now it's his whole career.",
+    answer: "Agents automate things. Krishna likes automating things. Lazy person builds smart solutions, now it's his whole career.",
     icon: Zap,
     color: "hsl(45, 80%, 55%)",
   },
@@ -56,14 +56,14 @@ const tiles: QATile[] = [
   {
     id: "work",
     question: "Current role?",
-    answer: "Leading Agent Studio at Allcognix AI — a no-code platform for AI agents. Previously at Omnineura AI, architecting enterprise AI.",
+    answer: "Leading Agent Studio at Allcognix AI, a no-code platform for AI agents. Previously at Omnineura AI, architecting enterprise AI.",
     icon: Coffee,
     color: "hsl(16, 70%, 50%)",
   },
   {
     id: "hire",
     question: "Why work with Krishna?",
-    answer: "He doesn't just code — he architects solutions. AI agents, scalable backends, clean APIs. If it involves making machines think, he's building it.",
+    answer: "He doesn't just code, he architects solutions. AI agents, scalable backends, clean APIs. If it involves making machines think, he's building it.",
     icon: Heart,
     color: "hsl(0, 65%, 55%)",
   },
@@ -90,7 +90,7 @@ export const AskKrishnaFlipTiles = () => {
             Get to Know Me
           </h2>
           <p className="text-muted-foreground max-w-md mx-auto">
-            Click a tile to flip it — learn about Krishna the fun way
+            Click a tile to flip it, learn about Krishna the fun way
           </p>
         </motion.div>
 
