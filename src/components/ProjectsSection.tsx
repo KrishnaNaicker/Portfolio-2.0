@@ -82,22 +82,30 @@ export const ProjectsSection = () => {
               onMouseLeave={() => setHoveredProject(null)}
             >
               <motion.div
-                className={`relative rounded-2xl bg-card border border-border overflow-hidden transition-all duration-500 h-full ${
-                  hoveredProject === project.title ? "border-primary/40" : ""
+                className={`relative rounded-2xl bg-card border border-transparent overflow-hidden transition-all duration-500 h-full ${
+                  hoveredProject === project.title ? "border-primary/40" : "border-border"
                 }`}
+                initial={{ y: 0 }}                // ensures Framer creates the layer on mount
                 whileHover={{ y: -4 }}
                 style={{
-                  boxShadow: hoveredProject === project.title
-                    ? "0 8px 40px hsl(24, 80%, 55%, 0.1)"
-                    : "none",
+                  boxShadow:
+                    hoveredProject === project.title
+                      ? "0 8px 40px hsl(24, 80%, 55%, 0.1)"
+                      : "none",
+                  transform: "translate3d(0,0,0)",
+                  WebkitTransform: "translate3d(0,0,0)",
+                  backfaceVisibility: "hidden",
+                  willChange: "transform",
+                  contain: "paint",               // isolates paint to this element
                 }}
               >
+
                 {/* Project image */}
                 <div className="relative w-full aspect-[16/10] overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
@@ -107,10 +115,12 @@ export const ProjectsSection = () => {
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                   style={{
-                    background: "radial-gradient(circle at 50% 0%, hsl(24, 80%, 55%, 0.08), transparent 60%)",
+                    background:
+                      "radial-gradient(circle at 50% 0%, hsl(24, 80%, 55%, 0.08), transparent 60%)",
+                    transform: "translate3d(0,0,0)",
+                    backfaceVisibility: "hidden",
                   }}
                 />
-
                 <div className="relative z-10 p-5">
                   <h3 className="text-lg font-semibold mb-1.5">{project.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-3">
