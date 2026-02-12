@@ -14,6 +14,23 @@ const navLinks = [
 export const Navigation = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const handleNavClick = (href: string) => {
+    setMobileOpen(false);
+
+    requestAnimationFrame(() => {
+      const id = href.replace("#", "");
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const yOffset = 80; // adjust if your navbar height differs
+      const y =
+        el.getBoundingClientRect().top + window.pageYOffset - yOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
+      history.pushState(null, "", href);
+    });
+  };
+
   return (
     <motion.header
       className="fixed top-0 left-0 right-0 z-50 navbar-glass"
@@ -24,7 +41,7 @@ export const Navigation = () => {
       <nav className="section-container py-4">
         <div className="flex items-center justify-between">
           <Logo />
-          
+
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-2">
             {navLinks.map((link) => (
@@ -80,18 +97,25 @@ export const Navigation = () => {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(link.href);
+                  }}
                 >
                   {link.label}
                 </motion.a>
               ))}
+
               <motion.a
                 href="#contact"
                 className="sm:hidden mt-2 py-3 px-4 text-sm font-medium text-primary-foreground bg-primary rounded-lg text-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                onClick={() => setMobileOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("#contact");
+                }}
               >
                 Get in touch
               </motion.a>
